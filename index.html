@@ -17,13 +17,25 @@
     <main>
       <section class="buttons-container">
         <button class="game-btn" id="rock">
-          <img src="./assets/hand-fist-bold-svgrepo-com.svg" alt="rock" />
+          <img
+            class="game-img"
+            src="./assets/hand-fist-bold-svgrepo-com.svg"
+            alt="rock"
+          />
         </button>
         <button class="game-btn" id="paper">
-          <img src="./assets/hand-svgrepo-com.svg" alt="paper" />
+          <img
+            class="game-img"
+            src="./assets/hand-svgrepo-com.svg"
+            alt="paper"
+          />
         </button>
         <button class="game-btn" id="scissors">
-          <img src="./assets/two-fingers-svgrepo-com.svg" alt="scissors" />
+          <img
+            class="game-img"
+            src="./assets/two-fingers-svgrepo-com.svg"
+            alt="scissors"
+          />
         </button>
       </section>
       <section class="result-container">
@@ -31,10 +43,15 @@
           Select a choice to start the game!
         </p>
         <article class="result-showcase">
-          <div class="result" id="result-player-1"></div>
-          <div class="result" id="result-player-2"></div>
+          <div class="result">
+            <img class="game-img" id="result-player-1" />
+          </div>
+          <div class="result">
+            <img class="game-img" id="result-player-2" />
+          </div>
         </article>
       </section>
     </main>
+    <script src="./index.js"></script>
   </body>
 </html>
