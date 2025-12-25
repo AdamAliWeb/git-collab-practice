@@ -96,3 +96,8 @@ body {
 .reset-btn:hover {
   background-color: #ddd;
 }
+.score {
+  background-color: #fff;
+  padding: 0.4rem;
+  border-radius: 0.25rem;
+}
