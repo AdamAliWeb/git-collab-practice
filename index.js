@@ -73,7 +73,7 @@ d.addEventListener("click", (e) => {
 
       if (count <= 0) {
         clearInterval(counter);
-        player2 = randomChoice("player2");
+        player2 = randomChoice();
         d.querySelector("#result-player-1").src = imageOptions[player1];
         d.querySelector("#result-player-2").src = imageOptions[player2];
 
