@@ -4,27 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <header>
-      <h1>Rock Paper Scissors</h1>
-      <p>
+    <header class="game-header">
+      <h1 class="game-title">Rock Paper Scissors</h1>
+      <p class="game-desc">
         This is a practice repository for collaboration in github. For reference
         and practice I am trying to implement the Rock Paper Scissors game.
       </p>
     </header>
     <main>
       <section class="buttons-container">
-        <button class="game-btn">Rock</button>
-        <button class="game-btn">Paper</button>
-        <button class="game-btn">Scissors</button>
+        <button class="game-btn" id="rock">
+          <img src="./assets/hand-fist-bold-svgrepo-com.svg" alt="rock" />
+        </button>
+        <button class="game-btn" id="paper">
+          <img src="./assets/hand-svgrepo-com.svg" alt="paper" />
+        </button>
+        <button class="game-btn" id="scissors">
+          <img src="./assets/two-fingers-svgrepo-com.svg" alt="scissors" />
+        </button>
       </section>
       <section class="result-container">
+        <p class="result-statement" id="counter">
+          Select a choice to start the game!
+        </p>
         <article class="result-showcase">
-          <div class="result" id="result-player-2"></div>
           <div class="result" id="result-player-1"></div>
+          <div class="result" id="result-player-2"></div>
         </article>
-        <p class="result-statement"></p>
       </section>
     </main>
   </body>
