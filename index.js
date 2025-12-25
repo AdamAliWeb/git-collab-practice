@@ -4,6 +4,20 @@ let player1;
 let player2;
 let count = 3;
 
+if (!localStorage.getItem("player1Score")) {
+  localStorage.setItem("player1Score", 0);
+}
+
+if (!localStorage.getItem("player2Score")) {
+  localStorage.setItem("player2Score", 0);
+}
+
+let player1Score = localStorage.getItem("player1Score");
+let player2Score = localStorage.getItem("player2Score");
+
+d.querySelector("#player1-score").textContent = player1Score;
+d.querySelector("#player2-score").textContent = player2Score;
+
 let svgs = d.querySelectorAll(".game-btn img");
 
 const imageOptions = {
@@ -27,13 +41,20 @@ const determineWinner = (p1, p2) => {
     (p1 === "scissors" && p2 === "paper") ||
     (p1 === "paper" && p2 === "rock")
   ) {
+    player1Score++;
+    localStorage.setItem("player1Score", player1Score);
+    d.querySelector("#player1-score").textContent = player1Score;
+
     return "Player 1 wins!";
   } else {
+    player2Score++;
+    localStorage.setItem("player2Score", player2Score);
+    d.querySelector("#player2-score").textContent = player2Score;
     return "Player 2 wins!";
   }
 };
 
-const randomChoice = (player) => {
+const randomChoice = () => {
   const choices = ["rock", "paper", "scissors"];
   return choices[Math.floor(Math.random() * choices.length)];
 };
@@ -50,7 +71,7 @@ d.addEventListener("click", (e) => {
       d.querySelector("#counter").textContent = count;
       if (count <= 0) {
         clearInterval(counter);
-        player2 = randomChoice("player2");
+        player2 = randomChoice();
         d.querySelector("#result-player-1").src = imageOptions[player1];
         d.querySelector("#result-player-2").src = imageOptions[player2];
 

@@ -77,3 +77,9 @@ body {
   background-color: #ddd;
   border-radius: 0.5rem;
 }
+
+.score {
+  background-color: #fff;
+  padding: 0.4rem;
+  border-radius: 0.25rem;
+}
