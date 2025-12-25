@@ -19,6 +19,13 @@ const disableBtns = () => {
   });
 };
 
+const enableBtns = () => {
+  d.querySelectorAll(".game-btn").forEach((el) => {
+    el.disabled = false;
+    el.classList.remove("disabled-btn");
+  });
+};
+
 const determineWinner = (p1, p2) => {
   if (p1 === p2) {
     return "It's a tie!";
@@ -33,9 +40,24 @@ const determineWinner = (p1, p2) => {
   }
 };
 
-const randomChoice = (player) => {
+const randomChoice = () => {
   const choices = ["rock", "paper", "scissors"];
   return choices[Math.floor(Math.random() * choices.length)];
+};
+
+const resetGame = () => {
+  enableBtns();
+  d.querySelector("#result-player-1").src = "";
+  d.querySelector("#result-player-2").src = "";
+  d.querySelector("#counter").textContent =
+    "Select a choice to start the game!";
+
+  player1 = null;
+  player2 = null;
+  count = 3;
+
+  d.querySelector(".reset-btn").disabled = true;
+  d.querySelector(".reset-btn").style.display = "none";
 };
 
 d.addEventListener("click", (e) => {
@@ -48,6 +70,7 @@ d.addEventListener("click", (e) => {
     let counter = setInterval(() => {
       count--;
       d.querySelector("#counter").textContent = count;
+
       if (count <= 0) {
         clearInterval(counter);
         player2 = randomChoice("player2");
@@ -58,7 +81,13 @@ d.addEventListener("click", (e) => {
           player1,
           player2
         );
+        d.querySelector(".reset-btn").disabled = false;
+        d.querySelector(".reset-btn").style.display = "block";
       }
     }, 1000);
+  }
+
+  if (e.target.matches(".reset-btn")) {
+    resetGame();
   }
 });
